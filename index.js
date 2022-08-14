@@ -26,4 +26,6 @@ db
 
 app.use("/api/v1", mahasiswaRouter);
 
-app.listen(port, () => console.log(`server berjalan pada port : ${port}`));
+app.listen(port, () => {
+    console.log(`server berjalan pada port : ${port}`);
+});
