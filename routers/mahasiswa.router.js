@@ -1,5 +1,5 @@
 import express from "express";
-import { create, destroy, destroyAll, findAll, findOne, updateOne } from "../controllers/mahasiswa.controller.js";
+import { create, destroy, destroyAll, findAll, findOne, search, updateOne } from "../controllers/mahasiswa.controller.js";
 
 const mahasiswaRouter = express.Router();
 
@@ -9,6 +9,7 @@ mahasiswaRouter
     .post("/mahasiswa/create", create)
     .put("/mahasiswa/update/:id", updateOne)
     .delete("/mahasiswa/destroy/:id", destroy)
-    .delete("/mahasiswa/destroy", destroyAll);
+    .delete("/mahasiswa/destroy", destroyAll)
+    .get("/mahasiswa/search/nama", search);
 
 export default mahasiswaRouter;

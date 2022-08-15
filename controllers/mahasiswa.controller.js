@@ -119,4 +119,25 @@ export const destroyAll = async (req, res) => {
             message: error.message,
         });
     }
-};  
+};
+
+export const search = async (req, res) => {
+    try {
+        const nama = req.body.nama;
+        const response = await mahasiswaModel.find({
+            nama: {
+                $regex: '.*' + nama + '.*'
+            }
+        });
+        res.status(200).json({
+            status: "ok",
+            message: "hasil pencarian data",
+            data: response
+        });
+    } catch (error) {
+        res.status(500).json({
+            status: "error",
+            message: error.message,
+        });
+    }
+};
