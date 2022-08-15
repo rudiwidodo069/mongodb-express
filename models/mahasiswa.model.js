@@ -19,6 +19,17 @@ const MahasiswaModel = new schema({
         type: String,
         require: true
     },
+    jenis_kelamin: {
+        type: String,
+        require: true,
+    },
+    no_telp: {
+        type: String,
+        require: true,
+    },
+    keterangan: {
+        type: String,
+    },
     createdOn: {
         type: Date,
         default: Date.now

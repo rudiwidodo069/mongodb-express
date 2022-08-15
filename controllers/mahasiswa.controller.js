@@ -40,6 +40,9 @@ export const create = async (req, res) => {
             npm: req.body.npm,
             kelas: req.body.kelas,
             jurusan: req.body.jurusan,
+            jenis_kelamin: req.body.jenis_kelamin,
+            no_telp: req.body.no_telp,
+            keterangan: req.body.keterangan,
         };
         const response = await mahasiswaModel.create(data);
         res.status(200).json({
@@ -63,6 +66,9 @@ export const updateOne = async (req, res) => {
             npm: req.body.npm,
             kelas: req.body.kelas,
             jurusan: req.body.jurusan,
+            jenis_kelamin: req.body.jenis_kelamin,
+            no_telp: req.body.no_telp,
+            keterangan: req.body.keterangan,
         };
         const response = await mahasiswaModel.updateOne({
             _id: id
@@ -88,7 +94,7 @@ export const destroy = async (req, res) => {
         const response = await mahasiswaModel.deleteOne({ _id: id });
         res.status(200).json({
             status: "ok",
-            message: "data berhasil dihapus",
+            message: "data berhasil dihapus berdasarkan id",
             data: response
         });
     } catch (error) {
@@ -98,3 +104,19 @@ export const destroy = async (req, res) => {
         });
     }
 };
+
+export const destroyAll = async (req, res) => {
+    try {
+        const response = await mahasiswaModel.deleteMany();
+        res.status(200).json({
+            status: "ok",
+            message: "hapus semua data berhasil",
+            data: response
+        });
+    } catch (error) {
+        res.status(500).json({
+            status: "error",
+            message: error.message,
+        });
+    }
+};  
